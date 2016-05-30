@@ -15,7 +15,7 @@ var CsrfToken = function() {
     }
 }
 
-CsrfToken.identifier = "com.pyartisan.LaravelCsrfToken";
+CsrfToken.identifier = "net.fangstar.LaravelCsrfToken";
 CsrfToken.title = "Laravel CSRF Token";
 
 registerDynamicValueClass(CsrfToken)
