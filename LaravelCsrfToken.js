@@ -5,10 +5,14 @@ var CsrfToken = function() {
             cookies = (request.getHeaderByName('Cookie') || '').split(';'),
             token = null;
         
+        //fix some time order or the cookie change result in blank space
+        //apply trim will fix the issue
         for (var index in cookies) {
-            if (cookies[index].indexOf('XSRF-TOKEN') == 0) {
-                token = cookies[index].split('=')[1]
-            }
+        	var cookieName = cookies[index].split('=')[0].trim();
+
+        	if(cookieName == 'XSRF-TOKEN'){
+        		console.log( token =cookies[index].split('=')[1].trim());	
+        	}
         }
         
         return decodeURIComponent(token);
